@@ -1,0 +1,46 @@
+/* Định dạng cho dropdown */
+.nav .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav .dropdown .dropdown-toggle {
+    cursor: pointer;
+    padding: 0; /* Loại bỏ padding để menu gần với chữ hơn */
+}
+
+/* Đặt top và left để điều chỉnh vị trí menu dropdown */
+.nav .dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    min-width: 160px;
+    z-index: 1;
+    top: 30%; /* Xuất hiện ngay dưới chữ "Tài khoản" */
+    left: 0;   /* Căn chỉnh bên trái với phần tử cha */
+    margin-top: 2px; /* Thay đổi khoảng cách giữa chữ và menu */
+}
+
+.nav .dropdown .dropdown-menu a {
+    color: #333;
+    
+    text-decoration: none;
+    display: block;
+}
+
+.nav .dropdown .dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Hiển thị dropdown khi hover */
+.nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Hiển thị dropdown khi click (thay đổi thuộc tính nếu cần) */
+.nav .dropdown .dropdown-toggle:focus + .dropdown-menu,
+.nav .dropdown .dropdown-menu.show {
+    display: block;
+}

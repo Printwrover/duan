@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quên Mật Khẩu</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .reset-container {
+      margin-top: 100px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .reset-header {
+      margin-bottom: 20px;
+    }
+
+    .reset-header h2 {
+      color: #343a40;
+    }
+
+    .reset-header p {
+      color: #6c757d;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #004085;
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding: 15px 0;
+      background: #f9f9f9;
+      border-top: 1px solid #eaeaea;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 reset-container">
+        <div class="reset-header text-center">
+          <h2>Quên Mật Khẩu</h2>
+          <p>Nhập địa chỉ email của bạn để nhận liên kết đặt lại mật khẩu.</p>
+        </div>
+
+        <!-- Password Reset Form -->
+        <form id="passwordResetForm">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Nhập email" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Gửi Liên Kết Đặt Lại Mật Khẩu</button>
+        </form>
+
+        <!-- Success and Error Messages -->
+        <div id="successMessage" class="alert alert-success d-none" role="alert">
+          Liên kết đặt lại mật khẩu đã được gửi đến email của bạn.
+        </div>
+        <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+          Đã xảy ra lỗi. Vui lòng kiểm tra email và thử lại.
+        </div>
+
+        <!-- Additional Links -->
+        <div class="text-center">
+          <a href="loginAdmin.html">Quay lại trang đăng nhập</a> |
+          <a href="support.html">Liên hệ hỗ trợ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <p>© 2024 Công ty XYZ. Bảo mật và điều khoản dịch vụ.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('passwordResetForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      
+      // Lấy giá trị từ trường email
+      const email = document.getElementById('email').value;
+
+      // Ẩn các thông báo
+      document.getElementById('successMessage').classList.add('d-none');
+      document.getElementById('errorMessage').classList.add('d-none');
+
+      // Giả lập gửi email đặt lại mật khẩu
+      if (email) {
+        // Giả lập thành công
+        document.getElementById('successMessage').classList.remove('d-none');
+      } else {
+        // Hiển thị thông báo lỗi nếu có lỗi
+        document.getElementById('errorMessage').classList.remove('d-none');
+      }
+    });
+  </script>
+</body>
+
+</html>

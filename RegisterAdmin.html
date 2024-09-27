@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Ký Admin</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0f4f8;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .header-area {
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .registration-container {
+      margin-top: 100px;
+    }
+
+    .registration-form {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .registration-form:hover {
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-header h2 {
+      margin: 0;
+      color: #343a40;
+    }
+
+    .form-header p {
+      color: #6c757d;
+    }
+
+    .btn-custom {
+      background-color: #007bff;
+      border-color: #007bff;
+      font-weight: 600;
+    }
+
+    .btn-custom:hover {
+      background-color: #0056b3;
+      border-color: #004085;
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding: 15px 0;
+      background: #f9f9f9;
+      border-top: 1px solid #eaeaea;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 registration-container">
+        <div class="form-header">
+          <h2>Đăng Ký Admin</h2>
+          <p>Vui lòng điền thông tin dưới đây để đăng ký tài khoản admin mới.</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="adminRegisterForm" class="registration-form">
+          <div class="form-group">
+            <label for="fullName">Họ và tên:</label>
+            <input type="text" class="form-control" id="fullName" placeholder="Nhập họ và tên" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Nhập email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Số điện thoại:</label>
+            <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại" required pattern="[0-9]{10}">
+          </div>
+          <div class="form-group">
+            <label for="password">Mật khẩu:</label>
+            <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Xác nhận mật khẩu:</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+          </div>
+          <button type="submit" class="btn btn-custom btn-block">Đăng Ký</button>
+        </form>
+
+        <!-- Success and Error Messages -->
+        <div id="successMessage" class="alert alert-success d-none" role="alert">
+          Đăng ký thành công! Bạn có thể đăng nhập ngay.
+        </div>
+        <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+          Đã xảy ra lỗi. Vui lòng kiểm tra thông tin và thử lại.
+        </div>
+
+        <!-- Additional Links -->
+        <div class="text-center">
+          <a href="loginAdmin.html">Đã có tài khoản?</a> |
+          <a href="support.html">Liên hệ hỗ trợ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <p>© 2024 Công ty XYZ. Bảo mật và điều khoản dịch vụ.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('adminRegisterForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Lấy giá trị từ các trường
+      const fullName = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      // Ẩn các thông báo
+      document.getElementById('successMessage').classList.add('d-none');
+      document.getElementById('errorMessage').classList.add('d-none');
+
+      // Kiểm tra điều kiện đăng ký
+      if (password === confirmPassword) {
+        // Giả lập thành công đăng ký
+        document.getElementById('successMessage').classList.remove('d-none');
+      } else {
+        // Hiển thị thông báo lỗi nếu mật khẩu không khớp
+        document.getElementById('errorMessage').classList.remove('d-none');
+      }
+    });
+  </script>
+</body>
+
+</html>

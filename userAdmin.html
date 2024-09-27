@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Khách Hàng</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+           body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa; /* Màu nền sáng hơn */
+    }
+    .sidebar {
+      height: 100vh;
+      background-color: #343a40; /* Màu sidebar */
+    }
+    .sidebar .nav-link {
+      color: #ffffff; /* Màu chữ trong sidebar */
+    }
+    .nav-link:hover {
+      background-color: #007bff; /* Màu hover */
+      color: #ffffff; /* Màu chữ khi hover */
+    }
+    .navbar {
+      background-color: #007bff; /* Màu navbar */
+    }
+    .navbar-brand {
+      color: #ffffff; /* Màu chữ navbar */
+      font-weight: 600;
+    }
+    .navbar .nav-link {
+      color: #ffffff; /* Màu chữ menu */
+    }
+    .navbar .nav-link:hover {
+      color: #ffd700; /* Màu chữ khi hover */
+    }
+    .card {
+      transition: all 0.3s ease-in-out;
+      border-radius: 15px; /* Bo góc cho card */
+    }
+    .card:hover {
+      transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Đổ bóng cho card */
+    }
+    .table-hover tbody tr:hover {
+      background-color: #e2e6ea; /* Màu hover cho hàng bảng */
+    }
+    .card-title {
+      font-weight: 600;
+    }
+    /* Thay đổi màu sắc cho các card */
+    .bg-primary {
+      background-color: #007bff !important;
+    }
+    .bg-success {
+      background-color: #28a745 !important;
+    }
+    .bg-warning {
+      background-color: #ffc107 !important;
+    }
+    .bg-danger {
+      background-color: #dc3545 !important;
+    }
+    /* Thêm hiệu ứng cho thanh tìm kiếm */
+    .form-control:focus {
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      border-color: #007bff;
+    }
+    .small-product-img {
+          width: 100px;
+          height: auto;
+          object-fit: cover;
+          border-radius: 5px;
+        }
+  </style>
+</head>
+
+<body>
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Admin Dashboard</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <form class="d-flex align-items-center me-3">
+        <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Tìm</button>
+      </form>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle"></i> Tài Khoản
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="BestAdmin.html">Hồ Sơ</a></li>
+            <li><a class="dropdown-item" href="loginAdmin.html">Đăng Nhập</a></li>            
+            <!-- <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Đăng Xuất</a></li> -->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2 p-0 sidebar shadow-sm">
+      <div class="d-flex flex-column p-3">
+        <span class="fs-4 mb-3 text-white">Menu Admin</span>
+        <ul class="nav flex-column mb-auto"> 
+          <li><a href="Admin.html" class="nav-link active"><i class="bi bi-speedometer2"></i> Bảng Điều Khiển</a></li>
+          <li><a href="cartadmin.html" class="nav-link"><i class="bi bi-cart"></i> Đơn Hàng</a></li>
+          <li><a href="sanphamadmin.html" class="nav-link"><i class="bi bi-box-seam"></i> Sản Phẩm</a></li>
+          <li><a href="userAdmin.html" class="nav-link"><i class="bi bi-people"></i> Khách Hàng</a></li>
+          <li><a href="cmtadmin.html" class="nav-link"><i class="bi bi-chat-left-text"></i> Bình Luận</a></li>
+          <li><a href="voucheradmin.html" class="nav-link"><i class="bi bi-chat-left-text"></i> Voucher</a></li>
+          <li><a href="baivietadmin.html" class="nav-link"><i class="bi bi-chat-left-text"></i> Bài viết</a></li>
+        </ul>
+      </div>
+    </div>
+
+      <div class="col-md-10 p-4">
+        <h2>Danh Sách Khách Hàng</h2>
+          <!-- <div class="mb-3">
+            <button class="btn btn-primary" onclick="showAddCustomerForm()">Thêm Khách Hàng</button>
+          </div>   -->
+
+        <!-- Bảng Khách Hàng -->
+        <table class="table table-striped table-hover">
+          <thead class="table-primary">
+            <tr>
+              <th>#</th>
+              <th>Tên</th>
+              <th>Email</th>
+              <th>Số Điện Thoại</th>
+              <th>Địa Chỉ</th>
+              <th>Thao Tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Nguyễn Văn A</td>
+              <td>nguyenvana@example.com</td>
+              <td>0123456789</td>
+              <td>123 Đường ABC, TP.HCM</td>
+              <td>
+                <button class="btn btn-sm btn-primary" onclick="showEditCustomerForm(1)">Khóa</button>
+                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Trần Thị B</td>
+              <td>tranthib@example.com</td>
+              <td>0987654321</td>
+              <td>456 Đường DEF, Hà Nội</td>
+              <td>
+                <button class="btn btn-sm btn-primary" onclick="showEditCustomerForm(1)">Khóa</button>
+                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+              </td>
+            </tr>
+            <!-- Thêm nhiều khách hàng khác -->
+          </tbody>
+        </table>
+
+        <!-- Form Thêm Khách Hàng -->
+        <!-- <div id="addCustomerForm" class="card mt-4 d-none">
+          <div class="card-header">
+            <h4>Thêm Khách Hàng</h4>
+          </div>
+          <div class="card-body">
+            <form id="addCustomerFormContent">
+              <div class="mb-3">
+                <label for="customerName" class="form-label">Tên</label>
+                <input type="text" class="form-control" id="customerName" required>
+              </div>
+              <div class="mb-3">
+                <label for="customerEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="customerEmail" required>
+              </div>
+              <div class="mb-3">
+                <label for="customerPhone" class="form-label">Số Điện Thoại</label>
+                <input type="text" class="form-control" id="customerPhone" required>
+              </div>
+              <div class="mb-3">
+                <label for="customerAddress" class="form-label">Địa Chỉ</label>
+                <input type="text" class="form-control" id="customerAddress" required>
+              </div>
+              <button type="submit" class="btn btn-success">Thêm</button>
+              <button type="button" class="btn btn-secondary" onclick="hideAddCustomerForm()">Hủy</button>
+            </form>
+          </div>
+        </div> -->
+
+              <!-- Form Khóa Tài Khoản -->
+      <div id="editCustomerForm" class="card mt-4 d-none">
+        <div class="card-header">
+          <h4>Khóa Tài Khoản Khách Hàng</h4>
+        </div>
+        <div class="card-body">
+          <form id="lockCustomerFormContent">
+            <input type="hidden" id="editCustomerId">
+            <div class="mb-3">
+              <label for="editCustomerName" class="form-label">Tên Khách Hàng</label>
+              <input type="text" class="form-control" id="editCustomerName" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="lockReason" class="form-label">Lý Do Khóa</label>
+              <select class="form-select" id="lockReason" required>
+                <option value="">Chọn lý do</option>
+                <option value="spam">Spam hoặc hành vi đáng ngờ</option>
+                <option value="violation">Vi phạm điều khoản</option>
+                <option value="request">Yêu cầu từ khách hàng</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="lockStatus" class="form-label">Trạng Thái Tài Khoản</label>
+              <select class="form-select" id="lockStatus" required>
+                <option value="locked">Đã khóa</option>
+                <option value="active">Kích hoạt lại</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-warning">Xác Nhận Khóa</button>
+            <button type="button" class="btn btn-secondary" onclick="hideEditCustomerForm()">Hủy</button>
+          </form>
+        </div>
+      </div>
+
+
+      <script>
+        // // Hiển thị form thêm khách hàng
+        // function showAddCustomerForm() {
+        //   document.getElementById('addCustomerForm').classList.remove('d-none');
+        // }
+    
+        // // Ẩn form thêm khách hàng
+        // function hideAddCustomerForm() {
+        //   document.getElementById('addCustomerForm').classList.add('d-none');
+        // }
+    
+        // Hiển thị form khóa khách hàng
+        function showEditCustomerForm(id) {
+          document.getElementById('editCustomerId').value = id;
+          document.getElementById('editCustomerName').value = "Tên Khách Hàng " + id; // Có thể thay thế bằng tên khách hàng thực tế
+          document.getElementById('editCustomerForm').classList.remove('d-none');
+        }
+    
+        // Ẩn form khóa khách hàng
+        function hideEditCustomerForm() {
+          document.getElementById('editCustomerForm').classList.add('d-none');
+        }
+    
+        // Xử lý sự kiện submit form khóa tài khoản
+        document.getElementById('lockCustomerFormContent').addEventListener('submit', function(event) {
+          event.preventDefault(); // Ngăn form submit mặc định
+    
+          const customerId = document.getElementById('editCustomerId').value;
+          const lockReason = document.getElementById('lockReason').value;
+          const lockStatus = document.getElementById('lockStatus').value;
+    
+          if (lockReason && lockStatus) {
+            alert(`Khóa khách hàng ID: ${customerId}, Lý do: ${lockReason}, Trạng thái: ${lockStatus}`);
+            hideEditCustomerForm();
+          } else {
+            alert("Vui lòng chọn lý do và trạng thái khóa tài khoản!");
+          }
+        });
+    
+        // Xử lý sự kiện submit form thêm khách hàng
+        document.getElementById('addCustomerFormContent').addEventListener('submit', function(event) {
+          event.preventDefault(); // Ngăn form submit mặc định
+    
+          const name = document.getElementById('customerName').value;
+          const email = document.getElementById('customerEmail').value;
+          const phone = document.getElementById('customerPhone').value;
+          const address = document.getElementById('customerAddress').value;
+    
+          if (name && email && phone && address) {
+            alert(`Thêm khách hàng mới: ${name}, Email: ${email}, Số điện thoại: ${phone}, Địa chỉ: ${address}`);
+            hideAddCustomerForm();
+          } else {
+            alert("Vui lòng nhập đầy đủ thông tin khách hàng!");
+          }
+        });
+    </script>
+    
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
